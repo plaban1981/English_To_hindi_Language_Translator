@@ -3,6 +3,7 @@ from PIL import Image
 from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 from huggingface_hub.hf_api import HfFolder
 HfFolder.save_token('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')
+access_token = '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'
 #
 image_path = r"Image/image.JPG"
 image = Image.open(image_path)
@@ -18,8 +19,8 @@ with st.form("Prediction_form"):
    submit = st.form_submit_button("Translate Text to Hindi")
    #
    if submit:
-        tokenizer = AutoTokenizer.from_pretrained(r"model_files/tk", use_auth_token=True)
-        model = AutoModelForSeq2SeqLM.from_pretrained(r"model_files/md", use_auth_token=True)
+        tokenizer = AutoTokenizer.from_pretrained(r"model_files/tk",use_auth_token=access_token)
+        model = AutoModelForSeq2SeqLM.from_pretrained(r"model_files/md",use_auth_token=access_token)
         inputs = tokenizer(text, return_tensors="pt")
 
         translated_tokens = model.generate(**inputs, 
