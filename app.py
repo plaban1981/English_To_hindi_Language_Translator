@@ -19,8 +19,8 @@ with st.form("Prediction_form"):
    submit = st.form_submit_button("Translate Text to Hindi")
    #
    if submit:
-        tokenizer = AutoTokenizer.from_pretrained("facebook/nllb-200-distilled-600M",use_auth_token=access_token)
-        model = AutoModelForSeq2SeqLM.from_pretrained("facebook/nllb-200-distilled-600M",use_auth_token=access_token)
+        tokenizer = AutoTokenizer.from_pretrained(r"model_files/tk",use_auth_token=access_token)
+        model = AutoModelForSeq2SeqLM.from_pretrained(r"model_files/md",use_auth_token=access_token)
         inputs = tokenizer(text, return_tensors="pt")
 
         translated_tokens = model.generate(**inputs, 
