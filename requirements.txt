@@ -1,0 +1,5 @@
+torch==1.12.1
+transformers==4.24.0
+streamlit==1.2.0
+Pillow==8.4.0
+joblib==1.1.0
