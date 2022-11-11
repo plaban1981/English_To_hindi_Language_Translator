@@ -3,7 +3,7 @@ from PIL import Image
 from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 
 #
-image_path = r".\Image\image.JPG"
+image_path = r"Image/image.JPG"
 image = Image.open(image_path)
 
 st.set_page_config(page_title="English To Hindi Language Translator App", layout="centered")
@@ -17,8 +17,8 @@ with st.form("Prediction_form"):
    submit = st.form_submit_button("Translate Text to Hindi")
    #
    if submit:
-        tokenizer = AutoTokenizer.from_pretrained(r".\model_files\tk")
-        model = AutoModelForSeq2SeqLM.from_pretrained(r".\model_files\md")
+        tokenizer = AutoTokenizer.from_pretrained(r"model_files/tk")
+        model = AutoModelForSeq2SeqLM.from_pretrained(r"model_files/md")
         inputs = tokenizer(text, return_tensors="pt")
 
         translated_tokens = model.generate(**inputs, 
